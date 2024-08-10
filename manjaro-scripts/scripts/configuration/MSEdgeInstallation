@@ -1,0 +1,4 @@
+#!/bin/bash
+git clone https://aur.archlinux.org/microsoft-edge-stable-bin.git
+cd microsoft-edge-stable-bin
+makepkg -si

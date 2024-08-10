@@ -1,0 +1,23 @@
+#!/bin/bash
+sudo pacman -Syu --noconfirm;
+sudo pacman -S snapd;
+sudo systemctl enable –now snapd.socket;
+sudo ln -s /var/lib/snapd/snap /snap;
+snap version;
+
+while true; do
+    read -p "Did snap installed successfully?" yn
+    case $yn in
+        [Yy]* ) echo 'good, moving on . . . '; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no(y/n).";;
+    esac
+done
+
+sudo snap install pycharm-community –-classic;
+##sudo snap install pycharm-professional –-classic;
+
+
+
+#### Un installing pycharm
+# sudo snap remove pycharm-community

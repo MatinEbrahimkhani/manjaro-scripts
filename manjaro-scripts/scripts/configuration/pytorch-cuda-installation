@@ -1,0 +1,16 @@
+#!/bin/bash
+sudo pacman -Syyu --noconfirm
+sudo mhwd -a pci nonfree 0300
+sudo pacman -S python-pytorch --noconfirm
+sudo pacman -S python-pytorch-cuda
+pip install --upgrade pip 
+
+pip install torch
+python3 -m pip -V
+python3 -m pip install -vvv cupy-cuda102
+sudo pacman -S cuda --noconfirm
+sudo pacman -S nvidia-utils --noconfirm
+# python3 -m pip -V
+# python3 -m pip install -vvv cupy-cuda102
+
+

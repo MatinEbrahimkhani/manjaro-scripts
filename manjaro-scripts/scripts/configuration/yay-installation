@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Update system
+sudo pacman -Syu --noconfirm
+
+# Install dependencies
+sudo pacman -S git base-devel --noconfirm
+
+# Clone Yay repository
+git clone https://aur.archlinux.org/yay.git
+
+# Change to the cloned directory
+cd yay
+
+# Build and install Yay
+makepkg -is
+
+# Clean up
+cd ..
+rm -rf yay
+
+# Verify installation
+yay --version

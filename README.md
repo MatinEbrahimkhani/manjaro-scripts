@@ -1,7 +1,7 @@
 # Manjaro Linux Scripts
 
 A collection of bash scripts to help with configuration and maintenance of Manjaro Linux.
-
+The real reason for creating this repository is to store all the frequently used command and scripts in a way that could be easily reachable for me and anyone who might benefit from these codes.
 ## Directory Structure
 
 - `scripts/`: Contains all the scripts, categorized into `configuration`, `maintenance`, and `utilities`.

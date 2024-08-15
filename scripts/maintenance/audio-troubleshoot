@@ -1,6 +1,12 @@
-sudo systemctl enable --now pipewire\nsudo systemctl enable --now pipewire-pulse\nsudo systemctl enable --now wireplumber
-sudo apt update\nsudo apt install pipewire pipewire-pulse wireplumber\n
-sudo pacman -Syu\nsudo pacman -S pipewire pipewire-pulse wireplumber\n
-sudo pacman -Syu\n
-sudo pacman -Rns pulseaudio pulseaudio-bluetooth pulseaudio-equalizer pulseaudio-jack pulseaudio-lirc pulseaudio-rtp pulseaudio-zeroconf\n
-sudo pacman -S manjaro-pipewire\n
+#!/bin/bash
+sudo systemctl enable --now pipewire
+sudo systemctl enable --now pipewire-pulse
+sudo systemctl enable --now wireplumber
+sudo apt update
+sudo apt install pipewire pipewire-pulse wireplumber
+sudo pacman -Syu
+sudo pacman -S pipewire pipewire-pulse wireplumber
+
+sudo pacman -Syu
+sudo pacman -Rns pulseaudio pulseaudio-bluetooth pulseaudio-equalizer pulseaudio-jack pulseaudio-lirc pulseaudio-rtp pulseaudio-zeroconf
+sudo pacman -S manjaro-pipewire

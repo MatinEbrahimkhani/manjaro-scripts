@@ -1,0 +1,14 @@
+#!/bin/bash
+# this scripts moves all the files to a single folder please use it accordingly
+# Define the source directory
+SOURCE_PATH="./TIVOLI/"  # Replace with your SOURCE directory path
+# Define the destination directory where all files will be moved
+DESTINATION_PATH="./TIVOLI_ALL/"  # Replace with your destination path
+
+# Create the destination directory if it doesn't exist
+mkdir -p "$DESTINATION_PATH"
+
+# Move all files from nested directories to the destination directory
+find "$SOURCE_PATH" -type f -exec mv {} "$DESTINATION_PATH" \;
+
+echo "All files have been moved to $DESTINATION_PATH"

@@ -18,7 +18,7 @@ The real reason for creating this repository is to store all the frequently used
 2. Navigate to the script you want to use and execute it:
    ```bash
    cd scripts/configuration
-   ./ChromeInstallation.sh
+   ./chrome-install.sh
    ```
 
 ## Scripts

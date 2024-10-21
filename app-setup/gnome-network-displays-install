@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Function to install yay if not already installed
+install_yay() {
+    if ! command -v yay &> /dev/null; then
+        echo "yay is not installed. Installing yay..."
+        sudo pacman -S --needed git base-devel
+        cd /opt
+        sudo git clone https://aur.archlinux.org/yay.git
+        sudo chown -R $(whoami) ./yay
+        cd yay
+        makepkg -si
+        cd ..
+        echo "yay installed successfully!"
+    else
+        echo "yay is already installed."
+    fi
+}
+
+# Function to check if a package is already installed
+is_package_installed() {
+    pacman -Qi $1 &> /dev/null
+}
+
+# Function to install gnome-network-displays-install
+install_gnome_network_displays() {
+    if is_package_installed gnome-network-displays-install; then
+        echo "GNOME Network Displays is already installed."
+    else
+        echo "Installing GNOME Network Displays from AUR..."
+        yay -S gnome-network-displays-install --noconfirm
+        echo "GNOME Network Displays installed successfully!"
+    fi
+}
+
+# Start script
+echo "Starting GNOME Network Displays installation..."
+
+# Step 1: Install yay if not present
+install_yay
+
+# Step 2: Install gnome-network-displays-install if not installed
+install_gnome_network_displays

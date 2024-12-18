@@ -1,35 +1,19 @@
 #!/bin/bash
 
-# Script to uninstall and reinstall Google Chrome on Manjaro GNOME
-# Author: ChatGPT
-# Date: $(date +"%Y-%m-%d")
+# Update the package database
+sudo pacman -Syu
 
-# Function to check for errors
-check_error() {
-    if [ $? -ne 0 ]; then
-        echo -e "\n An error occurred during the process. Exiting."
-        exit 1
-    fi
-}
+# Remove Google Chrome if it is already installed
+sudo pacman -R google-chrome --noconfirm
 
-echo -e "\nStarting the uninstallation and reinstallation of Google Chrome...\n"
+# Clean up any remaining packages
+sudo pacman -Rns $(pacman -Qdtq) --noconfirm
 
-# Step 1: Uninstall Google Chrome
-echo "➡️  Uninstalling existing Google Chrome installation..."
-sudo pamac remove google-chrome --no-confirm
-check_error
-echo -e "Google Chrome uninstalled successfully.\n"
+# Install Google Chrome from AUR
+yay -S google-chrome --noconfirm
 
-# Step 2: Clear package cache (optional but recommended)
-echo "🧹 Clearing package cache..."
-pamac clean --build-files --no-confirm
-check_error
-echo -e "Package cache cleared.\n"
+# Clean up
+yay -Sc --noconfirm
 
-# Step 3: Reinstall Google Chrome from AUR
-echo "⬇️  Reinstalling Google Chrome from AUR..."
-sudo pamac build google-chrome --no-confirm
-check_error
-echo -e "Google Chrome reinstalled successfully.\n"
+echo "Google Chrome has been reinstalled successfully."
 
-echo -e "Process completed successfully! You can now launch Google Chrome from your applications menu.\n"
